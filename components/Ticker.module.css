@@ -1,0 +1,64 @@
+/* components/Ticker.module.css */
+.ticker {
+  overflow: hidden;
+  padding: 12px 0;
+  background: var(--accent);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: ticker 38s linear infinite;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.group {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cat {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0f0b07;
+  font-weight: 500;
+  padding: 0 20px;
+  white-space: nowrap;
+}
+
+.sep {
+  color: #5a4f47;
+  padding: 0 12px;
+  font-size: 9px;
+}
+
+.item {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #2a2318;
+  padding: 0 4px;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dot {
+  color: #5a4f47;
+  margin-left: 6px;
+}
+
+.spacer {
+  display: inline-block;
+  width: 56px;
+}

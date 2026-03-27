@@ -1,0 +1,246 @@
+/* components/About.module.css */
+.about {
+  background: var(--bg-2); /* #1a140d */
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border-strong);
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 3px 1fr;
+  gap: 0 52px;
+  padding: 72px 0 76px var(--page-pad);
+}
+
+/* amber gradient separator at section boundary */
+.about::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 52px;
+  right: 52px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--accent) 25%, var(--accent) 75%, transparent);
+  opacity: 0.35;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* ∞ decorative background element */
+.about::after {
+  content: '∞';
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 340px;
+  line-height: 1;
+  color: rgba(224, 154, 53, 0.03);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  font-family: var(--font-serif);
+}
+
+.aboutStripe {
+  background: linear-gradient(to bottom, var(--accent), rgba(224, 154, 53, 0.04));
+  border-radius: 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.aboutContent {
+  padding-right: var(--page-pad);
+  position: relative;
+  z-index: 1;
+}
+
+.sectionLabel {
+  margin-bottom: 32px;
+}
+
+/* ── TWO-COLUMN LAYOUT ── */
+.aboutCols {
+  display: grid;
+  grid-template-columns: 1fr 290px;
+  gap: 48px;
+  align-items: start;
+}
+
+.aboutLeft {
+  max-width: 520px;
+}
+
+.aboutRight {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 4px;
+}
+
+/* ── QUOTE ── */
+.aboutQuote {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 2.8vw, 40px);
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 28px;
+}
+
+.aboutQuote em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+/* ── BODY ── */
+.aboutBody {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+}
+
+/* ── CURRENTLY ── */
+.currently {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg-3);
+  border: 1px solid var(--border-mid);
+  border-radius: 2px;
+  padding: 9px 14px;
+}
+
+.currentlyDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: apulse 2.2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes apulse {
+  0%, 100% { box-shadow: 0 0 7px var(--accent); }
+  50% { box-shadow: 0 0 2px var(--accent); }
+}
+
+.currentlyLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.currentlyValue {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent);
+}
+
+/* ── PILLS ── */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.pill {
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border-mid);
+  padding: 5px 10px;
+  border-radius: 2px;
+  letter-spacing: 0.03em;
+}
+
+.pillPrefix {
+  color: var(--text-sub);
+  margin-right: 4px;
+}
+
+/* ── META BLOCK ── */
+.metaBlock {
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.metaRow:last-child {
+  border-bottom: none;
+}
+
+.metaLabel {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.metaVal {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-sub);
+}
+
+/* ── TAGLINE ── */
+.tagline {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 900px) {
+  .aboutCols {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .aboutRight {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+
+  .metaBlock {
+    flex: 1;
+    min-width: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about {
+    grid-template-columns: 3px 1fr;
+    gap: 0 24px;
+    padding: 80px 0 80px 24px;
+  }
+
+  .aboutContent {
+    padding-right: 24px;
+  }
+
+  .about::after {
+    font-size: 200px;
+    right: 10px;
+  }
+
+  .aboutRight {
+    flex-direction: column;
+  }
+}
