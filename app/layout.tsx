@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Cormorant_Garamond, DM_Mono } from 'next/font/google'
 import { GeistSans } from 'geist/font/sans'
+import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <a href="#main-content" className="skip-link">Skip to content</a>
         <div id="cursor-glow" aria-hidden="true" suppressHydrationWarning />
         {children}
+        <Analytics />
         <script
           dangerouslySetInnerHTML={{
             __html: `
